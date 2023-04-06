@@ -19,15 +19,29 @@ public class CompteBancaire implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nom;
+    private int solde;
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getSolde() {
+        return solde;
+    }
+
+    public void setSolde(int solde) {
+        this.solde = solde;
+    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override
@@ -54,5 +68,25 @@ public class CompteBancaire implements Serializable {
     public String toString() {
         return "mg.itu.tpbanquerandriamiarinamanana41.entities.CompteBancaire[ id=" + id + " ]";
     }
-    
+
+    public CompteBancaire() {
+
+    }
+
+    public CompteBancaire(String nom, int solde) {
+        this.nom = nom;
+        this.solde = solde;
+    }
+
+    public void deposer(int montant) {
+        solde += montant;
+    }
+
+    public void retirer(int montant) {
+        if (montant < solde) {
+            solde -= montant;
+        } else {
+            solde = 0;
+        }
+    }
 }
