@@ -23,6 +23,15 @@ public class CompteBancaire implements Serializable {
     private Long id;
     private String nom;
     private int solde;
+    
+     public CompteBancaire() {
+
+    }
+
+    public CompteBancaire(String nom, int solde) {
+        this.nom = nom;
+        this.solde = solde;
+    }
 
     public String getNom() {
         return nom;
@@ -67,15 +76,6 @@ public class CompteBancaire implements Serializable {
     @Override
     public String toString() {
         return "mg.itu.tpbanquerandriamiarinamanana41.entities.CompteBancaire[ id=" + id + " ]";
-    }
-
-    public CompteBancaire() {
-
-    }
-
-    public CompteBancaire(String nom, int solde) {
-        this.nom = nom;
-        this.solde = solde;
     }
 
     public void deposer(int montant) {
